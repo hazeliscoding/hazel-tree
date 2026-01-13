@@ -1,1 +1,49 @@
-<p>home works!</p>
+<main class="bg-sparkles">
+  <section class="card">
+    <div class="top">
+      <div class="avatar-ring" aria-hidden="true">
+        <img class="avatar" [src]="profile.avatarUrl" alt="Profile avatar" />
+      </div>
+
+      <div class="title">
+        <h1>{{ profile.name }}</h1>
+        <p class="handle">{{ profile.handle }}</p>
+      </div>
+
+      <p class="bio">{{ profile.bio }}</p>
+    </div>
+
+    <div class="links" role="list">
+      @for (link of links; track link.url) {
+        <a
+          class="link"
+          role="listitem"
+          [href]="link.url"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div class="left">
+            <span class="emoji" aria-hidden="true">{{ link.emoji || '💗' }}</span>
+            <div class="meta">
+              <div class="label-row">
+                <span class="label">{{ link.label }}</span>
+                @if (link.isNew) {
+                  <span class="pill">new</span>
+                }
+              </div>
+              @if (link.description) {
+                <span class="desc">{{ link.description }}</span>
+              }
+            </div>
+          </div>
+
+          <span class="chev" aria-hidden="true">›</span>
+        </a>
+      }
+    </div>
+
+    <footer class="footer">
+      <span class="tiny">{{ footer.text }}</span>
+    </footer>
+  </section>
+</main>
