@@ -23,7 +23,8 @@ export class Home implements OnInit {
   private toastShowTimer?: number;
   private toastHideTimer?: number;
 
-  private readonly configUrl = '/assets/site-config.json';
+  // Relative so it works with <base href="/hazel-tree/"> on GitHub Pages.
+  private readonly configUrl = 'assets/site-config.json';
   private readonly themeStorageKey = 'kawaii-linktree-theme';
 
   constructor(

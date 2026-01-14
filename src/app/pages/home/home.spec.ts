@@ -32,7 +32,7 @@ describe('Home', () => {
   it('should create', () => {
     fixture.detectChanges();
 
-    const req = httpMock.expectOne((r) => r.url.endsWith('/assets/site-config.json'));
+    const req = httpMock.expectOne((r) => r.url.endsWith('assets/site-config.json'));
     req.flush({
       profile: {
         name: 'Test',
