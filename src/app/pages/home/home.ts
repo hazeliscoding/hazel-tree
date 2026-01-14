@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { finalize } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { SiteConfig } from '../../types/site-config';
+import { LinkItem } from '../../types/link-item';
 
 @Component({
   selector: 'app-home',
@@ -16,6 +17,11 @@ export class Home implements OnInit {
   loading = true;
   error?: string;
   theme: 'light' | 'dark' = 'light';
+  toast?: string;
+  toastState: 'show' | 'hide' = 'hide';
+
+  private toastShowTimer?: number;
+  private toastHideTimer?: number;
 
   private readonly configUrl = '/assets/site-config.json';
   private readonly themeStorageKey = 'kawaii-linktree-theme';
@@ -24,7 +30,11 @@ export class Home implements OnInit {
     private http: HttpClient,
     private cdr: ChangeDetectorRef,
     private destroyRef: DestroyRef
-  ) {}
+  ) {
+    this.destroyRef.onDestroy(() => {
+      this.clearToastTimers();
+    });
+  }
 
   ngOnInit(): void {
     this.initTheme();
@@ -53,6 +63,45 @@ export class Home implements OnInit {
 
   toggleTheme(): void {
     this.setTheme(this.theme === 'light' ? 'dark' : 'light');
+  }
+
+  async onLinkClick(event: MouseEvent, link: LinkItem) {
+    console.log('Link clicked:', link);
+    if (link.copyText) {
+      event.preventDefault();
+      await navigator.clipboard.writeText(link.copyText);
+      this.showToast('Copied ✨');
+    }
+  }
+
+  showToast(msg: string) {
+    this.clearToastTimers();
+
+    this.toast = msg;
+    this.toastState = 'show';
+    this.cdr.detectChanges();
+
+    // Stay visible, then fade out, then remove.
+    this.toastShowTimer = window.setTimeout(() => {
+      this.toastState = 'hide';
+      this.cdr.detectChanges();
+
+      this.toastHideTimer = window.setTimeout(() => {
+        this.toast = undefined;
+        this.cdr.detectChanges();
+      }, 220);
+    }, 1600);
+  }
+
+  private clearToastTimers(): void {
+    if (this.toastShowTimer) {
+      clearTimeout(this.toastShowTimer);
+      this.toastShowTimer = undefined;
+    }
+    if (this.toastHideTimer) {
+      clearTimeout(this.toastHideTimer);
+      this.toastHideTimer = undefined;
+    }
   }
 
   private initTheme(): void {

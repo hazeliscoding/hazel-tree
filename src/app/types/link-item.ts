@@ -4,4 +4,5 @@ export type LinkItem = {
   emoji?: string;
   description?: string;
   isNew?: boolean;
+  copyText?: string;
 };

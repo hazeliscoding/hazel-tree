@@ -23,7 +23,14 @@
 
     <div class="links" role="list">
       @for (link of config.links; track link.url) {
-      <a class="link" role="listitem" [href]="link.url" target="_blank" rel="noopener noreferrer">
+      <a
+        class="link"
+        role="listitem"
+        [href]="link.url"
+        target="_blank"
+        rel="noopener noreferrer"
+        (click)="onLinkClick($event, link)"
+      >
         <div class="left">
           <span class="emoji" aria-hidden="true">{{ link.emoji || '💗' }}</span>
           <div class="meta">
@@ -51,4 +58,7 @@
     <div class="status error" role="alert">No config loaded.</div>
     }
   </section>
+  <div class="toast" *ngIf="toast" [class.show]="toastState === 'show'" [class.hide]="toastState === 'hide'">
+    {{ toast }}
+  </div>
 </main>

@@ -21,7 +21,7 @@
 /* Soft decorative blobs */
 .card::before,
 .card::after {
-  content: "";
+  content: '';
   position: absolute;
   inset: auto;
   width: 240px;
@@ -235,5 +235,37 @@
   }
   .link:hover {
     transform: none;
+  }
+}
+
+.toast {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translate(-50%, -10px);
+  opacity: 0;
+  background: rgba(255, 127, 191, 0.9);
+  color: white;
+  padding: 10px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  box-shadow: 0 12px 30px rgba(255, 127, 191, 0.4);
+  transition: opacity 180ms ease, transform 180ms ease;
+  pointer-events: none;
+}
+
+.toast.show {
+  opacity: 1;
+  transform: translate(-50%, 0);
+}
+
+.toast.hide {
+  opacity: 0;
+  transform: translate(-50%, -10px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .toast {
+    transition: none;
   }
 }

@@ -30,6 +30,20 @@
       "url": "https://github.com/hazeliscoding",
       "emoji": "💻",
       "description": "My GitHub profile"
+    },
+    {
+      "label": "Discord",
+      "url": "https://discord.com/",
+      "emoji": "💬",
+      "description": "click to copy",
+      "copyText": ".hazelbasil."
+    },
+    {
+      "label": "Email",
+      "url": "mailto:hazel@example.com",
+      "emoji": "📧",
+      "description": "click to copy",
+      "copyText": "hazel@example.com"
     }
   ],
   "footer": {
