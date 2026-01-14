@@ -10,40 +10,32 @@
       "label": "AniList",
       "url": "https://anilist.co/user/hazelbasil",
       "emoji": "📺",
-      "description": "My anime list",
-      "isNew": true
+      "description": "Anime & manga I'm watching/reading"
     },
     {
       "label": "MyFigureCollection",
       "url": "https://myfigurecollection.net/profile/hazelbasil",
       "emoji": "🧸",
-      "description": "My figure collection"
+      "description": "Figures I own + wishlist"
     },
     {
       "label": "Backloggd",
       "url": "https://backloggd.com/u/hazelbasil",
       "emoji": "🎮",
-      "description": "My game backlog"
+      "description": "Games I'm playing + backlog"
     },
     {
       "label": "GitHub",
       "url": "https://github.com/hazeliscoding",
       "emoji": "💻",
-      "description": "My GitHub profile"
+      "description": "Code, projects, and cute web experiments"
     },
     {
       "label": "Discord",
       "url": "https://discord.com/",
       "emoji": "💬",
-      "description": "click to copy",
+      "description": "Tap to copy my Discord handle",
       "copyText": ".hazelbasil."
-    },
-    {
-      "label": "Email",
-      "url": "mailto:hazel@example.com",
-      "emoji": "📧",
-      "description": "click to copy",
-      "copyText": "hazel@example.com"
     }
   ],
   "footer": {
