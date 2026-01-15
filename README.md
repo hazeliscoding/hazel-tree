@@ -1,5 +1,5 @@
 # 🌸 HazelTree
-[![Deploy to GitHub Pages](https://github.com/hazeliscoding/hazel-tree/actions/workflows/deploy.yml/badge.svg)](https://github.com/hazeliscoding/hazel-tree/actions/workflows/deploy.yml)
+[![Deployment](https://github.com/hazeliscoding/hazel-tree/actions/workflows/deploy.yml/badge.svg?branch=main)](https://github.com/hazeliscoding/hazel-tree/actions/workflows/deploy.yml)
 
 A cute, lightweight Linktree-style profile page built with Angular.
 Content is driven by a single JSON file so you can update links, labels, emojis, and profile info without touching the UI.
